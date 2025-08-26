@@ -1,0 +1,76 @@
+<div class="container home">
+  <h1>Day2</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse totam nobis
+    debitis dicta mollitia placeat distinctio temporibus incidunt amet fugiat,
+    asperiores necessitatibus expedita nisi qui tempore recusandae molestiae
+    architecto explicabo.
+  </p>
+</div>
+
+<hr />
+
+<div class="text-center">
+  <!-- <p class="fs-4 fw-bold text-danger">{{ title }} Lec</p> -->
+  <p class="fs-4 fw-bold text-danger">{{ title }} $ {{ description }}</p>
+
+  <p>{{ description }}</p>
+  <!-- <p>{{ isMale }}</p> -->
+
+  <!-- <img src="{{ logoUrl }}" alt="" /> -->
+
+  <!-- <img [src]="logoUrl" alt="" /> -->
+
+  <!-- <p [class.text-warning]="isMale">Yor are a Male</p> -->
+
+  <div class="text-center">
+    <p class="fs-4 fw-bold text-danger">{{ productsQuantity }}</p>
+  </div>
+
+  <!-- <button class="btn btn-primary" (click)="Display()">Click Me</button> -->
+  <button
+    class="btn btn-primary"
+    (click)="decreaseQuantity()"
+    [disabled]="productsQuantity == 0"
+  >
+    {{ buttonText }}
+  </button>
+</div>
+
+<div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
+  <!-- <input type="text" class="form-control" [(ngModel)]="userName" /> -->
+
+  <input type="text" class="form-control" [(ngModel)]="userName" />
+
+  <p class="fs-4 fw-bold text-danger mt-3">{{ userName }}</p>
+</div>
+<hr />
+
+<!-- Control Flow -->
+
+<!-- old -->
+<!-- <div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
+  <p class="fs-4" *ngIf="isMale">You are a male</p>
+</div> -->
+
+<!-- new -->
+
+<!-- <div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
+  @if (isMale) {
+  <p class="fs-4">You are a male</p>
+  } @else if ( !isMale) {
+  <p class="fs-4">You are a female</p>
+  } @else{
+  <p class="fs-4">You are a unknown</p>
+  }
+</div> -->
+
+<div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
+  <p class="fs-4 fw-bold text-primary">{{ productsQuantity }}</p>
+
+  <!-- @switch (productsQuantity) { @case (0) { } } -->
+</div>
+
+@for(prd of products; track prd.id) {
+<p class="fs-4 fw-bold text-primary">{{ prd.name }}</p>
+}
