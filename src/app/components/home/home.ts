@@ -8,33 +8,34 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.css',
 })
 export class Home {
-  title: string = 'Hello in day2';
-  description: string = ' Content : Data Binding, Control Flow ';
+  // String Interpolation
+  title: string = 'Hello in Day 2';
+  description: string = 'Content: Data Binding & Control Flow';
 
+  // Property Binding + Class Binding
   isMale: boolean = true;
 
+  // Two-way Binding
   userName: string = 'Mahmoud Mohamed';
 
+  // Attribute Binding
   logoUrl: string = 'favicon.ico';
 
+  // Event Binding
   buttonText: string = 'Click Me';
 
-  products: any = [
-    { id: 1, name: 'prod1' },
-    { id: 2, name: 'prod2' },
-    { id: 3, name: 'prod3' },
+  // Control Flow Demo
+  products: any[] = [
+    { id: 1, name: 'Prod 1' },
+    { id: 2, name: 'Prod 2' },
+    { id: 3, name: 'Prod 3' },
   ];
 
   productsQuantity: number = 10;
 
-  // Display() {
-  //   console.log(this.userName);
-  //   alert(`Hello ${this.userName}`);
-  // }
-
   decreaseQuantity() {
-    this.productsQuantity--;
+    if (this.productsQuantity > 0) {
+      this.productsQuantity--;
+    }
   }
-
-  constructor() {}
 }

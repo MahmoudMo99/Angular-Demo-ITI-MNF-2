@@ -1,42 +1,50 @@
-<div class="container">
-  <h1>Control Flow</h1>
+<div class="container control-flow my-5">
+  <h1 class="text-center text-primary mb-4">Control Flow Demo</h1>
 
   <!-- if -->
+  <div class="demo-section">
+    <h3 class="section-title">If / Else</h3>
 
-  @if(isLoggedIn) {
-  <p>Welcome : {{ userName }}</p>
-  <button class="btn btn-danger" (click)="logout()">Logout</button>
-
-  } @else{
-  <button class="btn btn-primary" (click)="login()">Login</button>
-  }
-
-  <!-- for -->
-
-  @for(prd of products ; track prd.id ; let i = $index) {
-  <!-- <p>{{ i + 1 }} - {{ prd.name }}</p> -->
-
-  <div class="card">
-    <div class="card-header">{{ i + 1 }} - {{ prd.name }}</div>
-    <div class="card-body">
-      <h5 class="card-title">{{ prd.price }}</h5>
-      <p class="card-text">
-        {{ prd.quantity }}
-      </p>
-    </div>
+    @if (isLoggedIn) {
+    <p class="fs-5 text-success">Welcome: {{ userName }}</p>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+    } @else {
+    <p class="fs-5 text-danger">You are not logged in</p>
+    <button class="btn btn-primary" (click)="login()">Login</button>
+    }
   </div>
 
-  }
+  <!-- for -->
+  <div class="demo-section">
+    <h3 class="section-title">Loop - For / Empty</h3>
+
+    @for (prd of products; track prd.id; let i = $index) {
+    <div class="card product-card mb-3">
+      <div class="card-header bg-primary text-white">
+        {{ i + 1 }} - {{ prd.name }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Price: {{ prd.price }} $</h5>
+        <p class="card-text">Available Quantity: {{ prd.quantity }}</p>
+      </div>
+    </div>
+    } @empty {
+    <p class="text-muted">No products found</p>
+    }
+  </div>
 
   <!-- switch -->
+  <div class="demo-section">
+    <h3 class="section-title">Switch - Switch</h3>
 
-  @switch(role) { @case('admin') {
-  <p>Your role is Admin</p>
-  } @case('user') {
-  <p>Your role is User</p>
-  } @case('guest') {
-  <p>Your role is Guest</p>
-  } @default {
-  <p>Unknown</p>
-  } }
+    @switch (role) { @case ('admin') {
+    <p class="text-danger fw-bold">Your role is Admin</p>
+    } @case ('user') {
+    <p class="text-success fw-bold">Your role is User</p>
+    } @case ('guest') {
+    <p class="text-info fw-bold">Your role is Guest</p>
+    } @default {
+    <p class="text-muted">Unknown Role</p>
+    } }
+  </div>
 </div>

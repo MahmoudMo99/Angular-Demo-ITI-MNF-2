@@ -1,76 +1,92 @@
-<div class="container home">
-  <h1>Day2</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse totam nobis
-    debitis dicta mollitia placeat distinctio temporibus incidunt amet fugiat,
-    asperiores necessitatibus expedita nisi qui tempore recusandae molestiae
-    architecto explicabo.
-  </p>
-</div>
-
-<hr />
-
-<div class="text-center">
-  <!-- <p class="fs-4 fw-bold text-danger">{{ title }} Lec</p> -->
-  <p class="fs-4 fw-bold text-danger">{{ title }} $ {{ description }}</p>
-
-  <p>{{ description }}</p>
-  <!-- <p>{{ isMale }}</p> -->
-
-  <!-- <img src="{{ logoUrl }}" alt="" /> -->
-
-  <!-- <img [src]="logoUrl" alt="" /> -->
-
-  <!-- <p [class.text-warning]="isMale">Yor are a Male</p> -->
-
-  <div class="text-center">
-    <p class="fs-4 fw-bold text-danger">{{ productsQuantity }}</p>
+<div class="container">
+  <div class="home">
+    <h1 class="text-center text-primary">Day 2 Demo</h1>
+    <p class="lead text-muted text-center">
+      {{ description }}
+    </p>
   </div>
 
-  <!-- <button class="btn btn-primary" (click)="Display()">Click Me</button> -->
-  <button
-    class="btn btn-primary"
-    (click)="decreaseQuantity()"
-    [disabled]="productsQuantity == 0"
-  >
-    {{ buttonText }}
-  </button>
+  <hr />
+
+  <!-- String Interpolation -->
+  <div class="demo-section">
+    <h3 class="section-title">String Interpolation</h3>
+    <p class="fs-5 fw-bold text-success">{{ title }}</p>
+  </div>
+
+  <!-- Property & Class Binding -->
+  <div class="demo-section">
+    <h3 class="section-title">Property & Class Binding</h3>
+    <p [class.text-info]="isMale" [class.text-danger]="!isMale">
+      You are a {{ isMale ? "Male" : "Female" }}
+    </p>
+    <img [src]="logoUrl" class="logo-img mt-2" alt="Logo" />
+  </div>
+
+  <!-- Event Binding -->
+  <div class="demo-section text-center">
+    <h3 class="section-title">Event Binding</h3>
+    <p class="fs-4 fw-bold">Products Quantity : {{ productsQuantity }}</p>
+    <button
+      class="btn btn-primary"
+      (click)="decreaseQuantity()"
+      [disabled]="productsQuantity == 0"
+    >
+      {{ buttonText }}
+    </button>
+  </div>
+
+  <!-- Two-way Binding -->
+  <div class="demo-section">
+    <h3 class="section-title">Two-way Binding (ngModel)</h3>
+    <input
+      type="text"
+      class="form-control w-50 mx-auto"
+      [(ngModel)]="userName"
+    />
+    <p class="fs-5 fw-bold text-danger mt-3 text-center">{{ userName }}</p>
+  </div>
+
+  <hr />
+
+  <!-- Control Flow (If / Else) -->
+  <div class="demo-section">
+    <h3 class="section-title">Control Flow - If/ Else if / Else</h3>
+    @if (isMale) {
+    <p class="fs-5 text-success">You are a Male</p>
+    } @else if (!isMale) {
+    <p class="fs-5 text-danger">You are a Female</p>
+    } @else {
+    <p class="fs-5 text-muted">Unknown</p>
+    }
+  </div>
+
+  <!-- Control Flow (Switch) -->
+  <div class="demo-section">
+    <h3 class="section-title">Control Flow - Switch</h3>
+    <p class="fs-5">Quantity: {{ productsQuantity }}</p>
+
+    @switch (productsQuantity) { @case (0) {
+    <p class="text-danger">No Products</p>
+    } @case (1) {
+    <p class="text-warning">One Product</p>
+    } @case (2) {
+    <p class="text-info">Two Products</p>
+    } @case (3) {
+    <p class="text-success">Three Products</p>
+    } @default {
+    <p class="text-primary">More Than Three Products</p>
+    } }
+  </div>
+
+  <!-- Loop -->
+  <div class="demo-section">
+    <h3 class="section-title">Loop - For / Empty</h3>
+
+    @for (prd of products; track prd.id) {
+    <p class="fs-5 fw-bold text-primary">{{ prd.name }}</p>
+    } @empty {
+    <p class="fs-5 text-muted">No products available</p>
+    }
+  </div>
 </div>
-
-<div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
-  <!-- <input type="text" class="form-control" [(ngModel)]="userName" /> -->
-
-  <input type="text" class="form-control" [(ngModel)]="userName" />
-
-  <p class="fs-4 fw-bold text-danger mt-3">{{ userName }}</p>
-</div>
-<hr />
-
-<!-- Control Flow -->
-
-<!-- old -->
-<!-- <div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
-  <p class="fs-4" *ngIf="isMale">You are a male</p>
-</div> -->
-
-<!-- new -->
-
-<!-- <div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
-  @if (isMale) {
-  <p class="fs-4">You are a male</p>
-  } @else if ( !isMale) {
-  <p class="fs-4">You are a female</p>
-  } @else{
-  <p class="fs-4">You are a unknown</p>
-  }
-</div> -->
-
-<div class="text-center my-3 mx-5 d-flex flex-column justify-content-center">
-  <p class="fs-4 fw-bold text-primary">{{ productsQuantity }}</p>
-
-  <!-- @switch (productsQuantity) { @case (0) { } } -->
-</div>
-
-@for(prd of products; track prd.id) {
-<p class="fs-4 fw-bold text-primary">{{ prd.name }}</p>
-}
