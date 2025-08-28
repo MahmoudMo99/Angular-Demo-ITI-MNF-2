@@ -1,0 +1,36 @@
+<!-- parent -->
+
+<div class="container my-4">
+  <h2>Our Products</h2>
+  <div class="row">
+    @for (prd of products; track $index) {
+    <div class="col-md-4">
+      <app-product-card
+        [product]="prd"
+        (addToCart)="handleAddToCart($event)"
+      ></app-product-card>
+    </div>
+    }
+  </div>
+
+  <hr />
+  <h3>Our Cart</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cartPrd of cart; track $index) {
+      <tr>
+        <td>{{ cartPrd.name }}</td>
+        <td>{{ cartPrd.price }}</td>
+        <td>{{ cartPrd.quantity }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

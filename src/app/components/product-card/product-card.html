@@ -1,0 +1,14 @@
+<!-- child -->
+
+<div class="card h-100">
+  <div class="card-body">
+    <h5>Name : {{ product.name }}</h5>
+    <p>Description: {{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-warning" (click)="onAddToCart()">Buy</button>
+  </div>
+</div>

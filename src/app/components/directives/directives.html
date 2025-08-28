@@ -1,0 +1,72 @@
+<!-- directives -->
+
+<!-- class, style -->
+<!-- ngClass, ngStyle -->
+
+<div class="container">
+  <!-- custom pipe  -->
+
+  
+  <p>{{ des | truncate : 2 }}</p>
+
+
+
+
+  @for (prd of products; track $index) {
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      {{ prd.name | lowercase }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Price: {{ prd.price | currency : "USD" }}</h5>
+      <h4>{{ currentDate | date : "yyyy-MM-dd" }}</h4>
+      <!-- <p
+        class="card-text"
+        [class]="prd.quantity > 5 ? 'text-success' : 'text-danger'"
+      >
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+      <!-- <p class="card-text" [class.text-success]="prd.quantity > 5">
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+
+      <!-- <p class="card-text" [style.color]="color">
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+
+      <!-- <p
+        class="card-text"
+        [style]="prd.quantity > 5 ? { color: 'green' } : { color: 'red' }"
+      >
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+
+      <!-- ngClass -->
+
+      <!-- <p
+        class="card-text"
+        [ngClass]="{
+          'text-success': prd.quantity == 5,
+          'text-danger': prd.quantity > 5,
+          'text-info': prd.quantity < 5
+        }"
+      >
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+
+      <!-- <p
+        class="card-text"
+        [ngStyle]="{
+          'background-color': prd.quantity > 5 ? 'green' : 'red',
+          border: '1px solid black'
+        }"
+      >
+        Available Quantity: {{ prd.quantity }}
+      </p> -->
+
+      <p class="card-text">Available Quantity: {{ prd.quantity }}</p>
+      <button class="btn btn-warning">Buy</button>
+    </div>
+  </div>
+  }
+</div>
