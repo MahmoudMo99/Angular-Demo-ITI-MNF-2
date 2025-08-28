@@ -1,0 +1,41 @@
+.container {
+  background: #f9fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid #0d6efd;
+}
+
+h2 {
+  color: #0d6efd;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+h3 {
+  color: #198754;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+.table {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.table thead {
+  background: #0d6efd;
+  color: white;
+  text-align: center;
+}
+
+.table tbody tr:hover {
+  background: #f1f5ff;
+}
+
+.table td,
+.table th {
+  padding: 12px;
+  vertical-align: middle;
+}

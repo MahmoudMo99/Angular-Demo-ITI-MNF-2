@@ -43,6 +43,5 @@ export class Products {
 
   handleAddToCart(product: any) {
     this.cart.push(product);
-    // alert(`product ${product.name} added to cart`);
   }
 }
