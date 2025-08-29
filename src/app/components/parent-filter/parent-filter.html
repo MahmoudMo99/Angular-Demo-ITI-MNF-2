@@ -1,0 +1,11 @@
+<div class="container my-4">
+  <h3>Filter Products ( Parent )</h3>
+  <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Type product name"
+    [(ngModel)]="filterText"
+  />
+
+  <app-product-list [filter]="filterText"></app-product-list>
+</div>

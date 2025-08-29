@@ -1,0 +1,14 @@
+@if (productData) {
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      {{ productData.name }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Price: {{ productData.price }} $</h5>
+      <p class="card-text">Available Quantity: {{ productData.quantity }}</p>
+    </div>
+  </div>
+</div>
+
+}

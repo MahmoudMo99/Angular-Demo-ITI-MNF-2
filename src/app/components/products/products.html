@@ -21,6 +21,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Total for each Product</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +30,13 @@
         <td>{{ cartPrd.name }}</td>
         <td>{{ cartPrd.price }}</td>
         <td>{{ cartPrd.quantity }}</td>
+        <td>{{ cartPrd.price * cartPrd.quantity }}</td>
       </tr>
       }
     </tbody>
   </table>
+
+  <hr />
+
+  <h3>Total Price : {{ getTotalPrice() }}</h3>
 </div>

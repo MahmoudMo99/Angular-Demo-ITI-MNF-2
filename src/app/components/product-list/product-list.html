@@ -1,0 +1,11 @@
+<div>
+  <h4>Products ( child )</h4>
+
+  @for (prd of filteredProducts; track $index) {
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      {{ prd }}
+    </div>
+  </div>
+  }
+</div>
