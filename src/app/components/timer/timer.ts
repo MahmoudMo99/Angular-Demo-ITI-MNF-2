@@ -10,9 +10,9 @@ export class Timer implements OnInit, OnDestroy {
   interval: any;
 
   ngOnInit(): void {
-    this.interval = setInterval(() => {
-      console.log('interval ... tick ');
-    }, 1000);
+    // this.interval = setInterval(() => {
+    //   console.log('interval ... tick ');
+    // }, 1000);
   }
   ngOnDestroy(): void {
     clearInterval(this.interval);

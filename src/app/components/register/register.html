@@ -1,0 +1,72 @@
+<div class="content">
+  <section class="forms-section">
+    <!-- Manual Form -->
+    <div class="register-wrapper">
+      <div class="register-block">
+        <h3 class="register-title">Manual Form</h3>
+
+        <form [formGroup]="formWithControls" (ngSubmit)="onSubmit()">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            formControlName="name"
+          />
+
+          @if(formWithControls.get('name')?.invalid &&
+          formWithControls.get('name')?.touched){
+          <div class="error" style="color: red">
+            Name is required and min length is 3
+          </div>
+          }
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+
+          <button
+            type="submit"
+            class="btn btn-warning"
+            [disabled]="formWithControls.invalid"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- External Form -->
+    <div class="register-wrapper">
+      <div class="register-block">
+        <h3 class="register-title">External Form</h3>
+
+        <form [formGroup]="formFromExternal" (ngSubmit)="onExternalSubmit()">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            formControlName="name"
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="formFromExternal.invalid"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
